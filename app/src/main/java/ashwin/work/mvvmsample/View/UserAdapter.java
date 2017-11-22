@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import javax.inject.Inject;
-
 import ashwin.work.mvvmsample.BR;
 import ashwin.work.mvvmsample.Dagger.App;
 import ashwin.work.mvvmsample.Model.DAO.User;

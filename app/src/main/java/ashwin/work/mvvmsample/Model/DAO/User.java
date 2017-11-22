@@ -8,6 +8,9 @@ import android.databinding.BaseObservable;
 import android.support.annotation.NonNull;
 import android.support.v7.recyclerview.extensions.DiffCallback;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by ashwin on 21/11/17.
  */
@@ -18,7 +21,7 @@ public class User extends BaseObservable {
     public static DiffCallback<User> DIFF_CALLBACK = new DiffCallback<User>() {
         @Override
         public boolean areItemsTheSame(@NonNull User oldItem, @NonNull User newItem) {
-            return oldItem.userId == newItem.userId;
+            return oldItem.id == newItem.id;
         }
 
         @Override
@@ -26,12 +29,60 @@ public class User extends BaseObservable {
             return oldItem.equals(newItem);
         }
     };
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "user_id")
-    public long userId;
-    @ColumnInfo(name = "first_name")
-    public String firstName;
-    public String address;
+    @SerializedName("login")
+    @Expose
+    public String login;
+    @SerializedName("id")
+    @Expose
+    @PrimaryKey
+    public Integer id;
+    @SerializedName("avatar_url")
+    @Expose
+    public String avatarUrl;
+    @SerializedName("gravatar_id")
+    @Expose
+    public String gravatarId;
+    @SerializedName("url")
+    @Expose
+    public String url;
+    @SerializedName("html_url")
+    @Expose
+    public String htmlUrl;
+    @SerializedName("followers_url")
+    @Expose
+    public String followersUrl;
+    @SerializedName("following_url")
+    @Expose
+    public String followingUrl;
+    @SerializedName("gists_url")
+    @Expose
+    public String gistsUrl;
+    @SerializedName("starred_url")
+    @Expose
+    public String starredUrl;
+    @SerializedName("subscriptions_url")
+    @Expose
+    public String subscriptionsUrl;
+    @SerializedName("organizations_url")
+    @Expose
+    public String organizationsUrl;
+    @SerializedName("repos_url")
+    @Expose
+    public String reposUrl;
+    @SerializedName("events_url")
+    @Expose
+    public String eventsUrl;
+    @SerializedName("received_events_url")
+    @Expose
+    public String receivedEventsUrl;
+    @SerializedName("type")
+    @Expose
+    public String type;
+    @SerializedName("site_admin")
+    @Expose
+    public Boolean siteAdmin;
+
+
 
     @Override
     @Ignore
@@ -41,12 +92,12 @@ public class User extends BaseObservable {
 
         User user = (User) obj;
 
-        return user.userId == this.userId && user.firstName == this.firstName;
+        return user.id == this.id && user.login == this.login;
     }
 
     @Override
     @Ignore
     public String toString(){
-        return "["+Long.toString(userId)+"] "+"My name is: "+firstName+", and I live in "+address+".";
+        return "["+Long.toString(id)+"] "+"The login name is: "+login+".";
     }
 }

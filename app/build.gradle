@@ -17,22 +17,26 @@ android {
         }
     }
     dataBinding {
-        enabled=true
+        enabled = true
     }
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
 }
-def AAVersion = '4.4.0'
+def retrofitVersion = '2.3.0'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation "android.arch.lifecycle:runtime:1.0.3" // not necessary if you are using lifecycle:extensions or lifecycle:common-java8
-    annotationProcessor "android.arch.lifecycle:compiler:1.0.0" // not needed if you are using the DefaultLifecycleObserver from common-java8 artifact.
+    implementation "android.arch.lifecycle:runtime:1.0.3"
+    // not necessary if you are using lifecycle:extensions or lifecycle:common-java8
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+    // not needed if you are using the DefaultLifecycleObserver from common-java8 artifact.
     implementation "android.arch.lifecycle:common-java8:1.0.0"
     implementation "android.arch.lifecycle:extensions:1.0.0"
     testImplementation "android.arch.core:core-testing:1.0.0"
@@ -46,4 +50,11 @@ dependencies {
     compile 'com.google.dagger:dagger:2.10'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
 
+    //retrofit
+    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+
+    //okhttp3
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
 }
+

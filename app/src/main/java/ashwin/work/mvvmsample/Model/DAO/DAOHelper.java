@@ -19,12 +19,13 @@ public class DAOHelper {
     Context context;
 
     public AppDatabase appDatabase;
-    UserDao dao;
-
+    UserDao userDao;
+    PageDao pageDao;
     public DAOHelper(){
         App.getComponent().inject(this);
             appDatabase = Room.databaseBuilder(context, AppDatabase.class, AppDatabase.DATABASE_NAME).build();
-            dao=appDatabase.userDao();
+            userDao=appDatabase.userDao();
+            pageDao=appDatabase.pageDao();
     }
 
 

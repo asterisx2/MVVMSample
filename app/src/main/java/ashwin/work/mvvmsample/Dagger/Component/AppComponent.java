@@ -6,6 +6,7 @@ import ashwin.work.mvvmsample.Dagger.Module.AppModule;
 import ashwin.work.mvvmsample.Dagger.Module.DatabaseModule;
 import ashwin.work.mvvmsample.Dagger.Module.ViewModule;
 import ashwin.work.mvvmsample.Model.DAO.DAOHelper;
+import ashwin.work.mvvmsample.View.Fragments.UserFragment;
 import ashwin.work.mvvmsample.View.MainActivity;
 import ashwin.work.mvvmsample.View.UserAdapter;
 import ashwin.work.mvvmsample.ViewModel.UserViewModel;
@@ -18,7 +19,7 @@ import dagger.Component;
 @Singleton
 public interface AppComponent {
 
-    void inject(MainActivity activity);
+    void inject(UserFragment userFragment);
 
     void inject(UserViewModel model);
 

@@ -21,50 +21,16 @@ import ashwin.work.mvvmsample.ViewModel.UserViewModel;
  */
 public class MainActivity extends AppCompatActivity {
 
-    //@Inject
-    UserViewModel viewModel;
 
-    //@Inject
-    UserAdapter userAdapter;
-
-    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        App.getComponent().inject(this);
 
         setContentView(R.layout.activity_main);
-        recyclerView=findViewById(R.id.recyclerView);
-
-        viewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-        userAdapter = new UserAdapter(viewModel);
-
-        viewModel.userList.observe(this, pagedList -> {
-            userAdapter.setList(pagedList);
-        });
-
-        recyclerView.setAdapter(userAdapter);
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.action_insert:
-                viewModel.insertUser();
-                break;
-        }
-        return true;
-    }
 
 
 }
