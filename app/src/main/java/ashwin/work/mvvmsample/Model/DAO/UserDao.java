@@ -1,4 +1,4 @@
-package ashwin.work.mvvmsample.Model;
+package ashwin.work.mvvmsample.Model.DAO;
 
 import android.arch.paging.LivePagedListProvider;
 import android.arch.persistence.room.Dao;

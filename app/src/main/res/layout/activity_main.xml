@@ -7,7 +7,8 @@
     tools:context="ashwin.work.mvvmsample.View.MainActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/userList"
+        android:id="@+id/recyclerView"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

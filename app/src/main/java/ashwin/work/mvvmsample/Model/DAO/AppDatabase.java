@@ -1,4 +1,4 @@
-package ashwin.work.mvvmsample.Model;
+package ashwin.work.mvvmsample.Model.DAO;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;

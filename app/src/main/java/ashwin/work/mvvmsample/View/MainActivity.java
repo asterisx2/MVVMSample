@@ -9,37 +9,42 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+
+import javax.inject.Inject;
+
+import ashwin.work.mvvmsample.Dagger.App;
 import ashwin.work.mvvmsample.R;
 import ashwin.work.mvvmsample.ViewModel.UserViewModel;
 
 /**
  * Created by ashwin on 21/11/17.
  */
-
 public class MainActivity extends AppCompatActivity {
 
-
+    //@Inject
     UserViewModel viewModel;
+
+    //@Inject
+    UserAdapter userAdapter;
+
+    RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        App.getComponent().inject(this);
+
         setContentView(R.layout.activity_main);
-
-
-
-        RecyclerView recyclerView = findViewById(R.id.userList);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(llm);
+        recyclerView=findViewById(R.id.recyclerView);
 
         viewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-        final UserAdapter userUserAdapter = new UserAdapter(viewModel);
+        userAdapter = new UserAdapter(viewModel);
 
         viewModel.userList.observe(this, pagedList -> {
-            userUserAdapter.setList(pagedList);
+            userAdapter.setList(pagedList);
         });
 
-        recyclerView.setAdapter(userUserAdapter);
+        recyclerView.setAdapter(userAdapter);
 
     }
 

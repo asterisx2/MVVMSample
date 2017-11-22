@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import ashwin.work.mvvmsample.Model.User;
+import ashwin.work.mvvmsample.Model.DAO.User;
 
 /**
  * Created by ashwin on 21/11/17.

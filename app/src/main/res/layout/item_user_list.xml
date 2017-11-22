@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable name="handler" type="ashwin.work.mvvmsample.ViewModel.UserViewModel"/>
-        <variable name="user" type="ashwin.work.mvvmsample.Model.User"/>
+        <variable name="user" type="ashwin.work.mvvmsample.Model.DAO.User"/>
     </data>
     <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import javax.inject.Inject;
+
 import ashwin.work.mvvmsample.BR;
-import ashwin.work.mvvmsample.Model.User;
+import ashwin.work.mvvmsample.Dagger.App;
+import ashwin.work.mvvmsample.Model.DAO.User;
 import ashwin.work.mvvmsample.R;
 import ashwin.work.mvvmsample.ViewModel.UserViewModel;
 import ashwin.work.mvvmsample.databinding.ItemUserListBinding;
@@ -18,9 +21,16 @@ import ashwin.work.mvvmsample.databinding.ItemUserListBinding;
  */
 
 public class UserAdapter extends PagedListAdapter<User, UserAdapter.UserItemViewHolder> {
+
+    //@Inject
     UserViewModel model;
 
-    protected UserAdapter(UserViewModel model) {
+    public UserAdapter() {
+        super(User.DIFF_CALLBACK);
+        App.getComponent().inject(this);
+    }
+
+    public UserAdapter(UserViewModel model) {
         super(User.DIFF_CALLBACK);
         this.model=model;
     }
